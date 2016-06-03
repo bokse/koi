@@ -12,9 +12,11 @@ int main(){
 		scanf("%d%d",&a,&b);--a,--b;
 		less[a][b]=1;
 	}
-	for(int k=0;k<N;k++)for(int i=0;i<N;i++)for(int j=0;j<N;j++){
-		if(less[i][k]&&less[k][j]){
-			less[i][j]=1;
+	for(int k=0;k<N;k++){
+		for(int i=0;i<N;i++)for(int j=0;j<N;j++){
+			if(less[i][k]&&less[k][j]){
+				less[i][j]=1;
+			}
 		}
 	}
 	int ans=0;
