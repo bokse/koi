@@ -15,9 +15,6 @@ struct EDGE{
 	}
 }edges[MN];
 
-ll nC2(int n){
-	return (ll)n*(n-1)/2;
-}
 int par(int n){
 	if(p[n]==n)return n;
 	return p[n]=par(p[n]);
@@ -25,9 +22,7 @@ int par(int n){
 void merge(int a,int b,ll &count){
 	a=par(a), b=par(b);
 	if(a==b)return;
-	count -= nC2(sz[a]);
-	count -= nC2(sz[b]);
-	count += nC2(sz[a]+sz[b]);
+	count+=(ll)sz[a]*sz[b];
 	p[a]=b;
 	sz[b]+=sz[a];
 }
